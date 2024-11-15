@@ -131,7 +131,7 @@ def k_neighs(
         elif where == "out":
             subg_out = dgl.khop_out_subgraph(
                 graph, center_idx, 2, store_ids=True)[0]
-            neigh_idxs = subg_out.ndata[dgl.NID][subg_in.ndata[dgl.NID] != center_idx]
+            neigh_idxs = subg_out.ndata[dgl.NID][subg_out.ndata[dgl.NID] != center_idx]
             neigh1s = graph.successors(center_idx)
             neigh_idxs = neigh_idxs[~torch.isin(neigh_idxs, neigh1s)]
 
@@ -205,9 +205,9 @@ if __name__ == "__main__":
         DATADIR, "yelp_rur_adjlists.pickle"))
     sparse_to_adjlist(net_rtr, os.path.join(
         DATADIR, "yelp_rtr_adjlists.pickle"))
-    sparse_to_adjlist(net_rtr, os.path.join(
+    sparse_to_adjlist(net_rsr, os.path.join(
         DATADIR, "yelp_rsr_adjlists.pickle"))
-    sparse_to_adjlist(net_rtr, os.path.join(
+    sparse_to_adjlist(yelp_homo, os.path.join(
         DATADIR, "yelp_homo_adjlists.pickle"))
 
     data_file = yelp

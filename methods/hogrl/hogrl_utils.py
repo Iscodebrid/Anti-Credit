@@ -282,3 +282,4 @@ def calculate_g_mean(y_true, y_pred):
         sensitivities.append(sensitivity)
     g_mean = np.prod(sensitivities) ** (1 / len(sensitivities))
     return g_mean
+

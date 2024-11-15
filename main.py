@@ -8,7 +8,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import sys
 import pickle
-import dgl
+# import dgl
 from scipy.io import loadmat
 import yaml
 
@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 def parse_args():
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter,
                             conflict_handler='resolve')
-    parser.add_argument("--method", default=str)  # specify which method to use
+    parser.add_argument("--method", default='rgtan')  # specify which method to use
     method = vars(parser.parse_args())['method']  # dict
 
     # if method in ['']:
